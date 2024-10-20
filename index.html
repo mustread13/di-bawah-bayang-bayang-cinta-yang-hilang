@@ -109,6 +109,23 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 
 html, body {min-height:100%; height:100%; overflow-x:hidden; display:block;}
 
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+  }
+  html ::-webkit-scrollbar {
+    display: none;
+  }
+
+body.gal {
+  display: flex!important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 a::after {
   content: none!important;
@@ -145,81 +162,40 @@ a::after {
   mix-blend-mode: screen;
 }
 
-.heading {
-    text-align: center;
-    font-size: 2.0em;
-    letter-spacing: 1px;
-    padding: 40px;
-    color: white;
+.grid-container {
+  columns: 5 200px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
 }
-
-.gallery-image {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.gallery-image img {
-  height: 250px;
-  width: 350px;
-  transform: scale(1.0);
-  transition: transform 0.4s ease;
-}
-
-.img-box {
-  box-sizing: content-box;
-  margin: 10px;
-  height: 250px;
-  width: 350px;
-  overflow: hidden;
+.grid-container div {
+  width: 150px;
+  margin: 0 1.5rem 1.5rem 0;
   display: inline-block;
-  color: white;
-  position: relative;
-  background-color: white;
+  width: 100%;
+  border: solid 2px black;
+  padding: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
 }
-
-.caption {
-  position: absolute;
-  bottom: 5px;
-  left: 20px;
-  opacity: 0.0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.grid-container div:hover img {
+  filter: grayscale(0);
 }
-
-.transparent-box {
-  height: 250px;
-  width: 350px;
-  background-color:rgba(0, 0, 0, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: background-color 0.3s ease;
+.grid-container div:hover {
+  border-color: coral;
 }
-
-.img-box:hover img { 
-  transform: scale(1.1);
+.grid-container div img {
+  width: 100%;
+  filter: grayscale(100%);
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
 }
-
-.img-box:hover .transparent-box {
-  background-color:rgba(0, 0, 0, 0.5);
-}
-
-.img-box:hover .caption {
-  transform: translateY(-20px);
-  opacity: 1.0;
-}
-
-.img-box:hover {
-  cursor: pointer;
-}
-
-.caption > p:nth-child(2) {
-  font-size: 0.8em;
-}
-
-.opacity-low {
-  opacity: 0.5;
+.grid-container div p {
+  margin: 5px 0;
+  padding: 0;
+  text-align: center;
+  font-style: italic;
 }
 	
 @keyframes lights {
@@ -1222,74 +1198,42 @@ Rasa sakit dan kesedihan menyelimuti hati Narala Alessya. Dia berjuang untuk men
 
 &lt;&lt;button [[Perkenalan Keluarga]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button [[Perkenalan Anak-Anak]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button [[Perkenalan Ibu Tiri]]&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;
 &lt;div class=&quot;text-container&quot;&gt;
-    &lt;div&gt;Di Bawah Bayang-Bayang Cinta yang Hilang&lt;/div&gt;
-    &lt;div&gt;Asha&lt;/div&gt;
-    &lt;div&gt;Di Bawah Bayang-Bayang Cinta yang Hilang&lt;/div&gt;
-    &lt;div&gt;Asha&lt;/div&gt;
-    &lt;div&gt;Di Bawah Bayang-Bayang Cinta yang Hilang&lt;/div&gt;
+    &lt;div&gt;❀&lt;/div&gt;
+    &lt;div&gt;‧₊˚❀&lt;/div&gt;
+    &lt;div&gt;❀‧₊&lt;/div&gt;
+    &lt;div&gt;₊˚❀₊˚&lt;/div&gt;
+    &lt;div&gt;❀&lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryInit" tags="system" position="750,250" size="100,100">&lt;&lt;set _bgm1 = setup.SoundPath + &quot;Sign of the Times.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;bgm1&quot; _bgm1&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Perkenalan Keluarga" tags="done" position="525,500" size="100,100">&lt;div class=&quot;container&quot;&gt;
 	&lt;video src=&quot;video/leaves.mp4&quot; type=&quot;video/mp4&quot; autoplay muted loop&gt;&lt;/video&gt;
     [img[image/family.jpg]]
-&lt;/div&gt;&lt;div class=&quot;isi&quot;&gt;&lt;&lt;flash &quot;Ketuk foto untuk melihat nama masing-masing karakter.&quot;&gt;&gt;
-	&lt;&lt;flashType &quot;info&quot;&gt;&gt;
-    &lt;&lt;Timeout 10000&gt;&gt;
-    &lt;&lt;Delay 1000&gt;&gt;
-&lt;&lt;/flash&gt;&gt;&lt;div class=&quot;gallery-image&quot;&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/mahendra.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Mahendra&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Sanjaya&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/mentari.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Mentari&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Atmaja&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/hendry.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Hendry&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Ravindra&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/narala.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Narala&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Alessya&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/karel.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Karel&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Aswangga&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/naverlla.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Naverlla&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Zoyelline&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;isi gal&quot;&gt;&lt;div class=&quot;grid-container&quot;&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-1&#39; src=&quot;image/mentari.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Mentari Atmaja&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-2&#39; src=&quot;image/mahendra.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Mahendra Sanjaya&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-3&#39; src=&quot;image/hendry.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Hendry Ravindra&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-4&#39; src=&quot;image/narala.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Narala Alessya&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-5&#39; src=&quot;image/karel.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Karel Aswangga&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-6&#39; src=&quot;image/naverlla.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Naverlla Zoyelline&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+  &lt;/div&gt;
   &lt;/div&gt;
 
 Mahendra Sanjaya dan Mentari Atmaja, pasangan yang membangun keluarga dengan empat anak, Hendry Ravindra, Naverlla Zoyelline, Narala Alessya, dan Karel Aswangga.  Di balik kebersamaan mereka, tersembunyi rahasia yang siap mengguncang fondasi keluarga mereka.
@@ -1298,47 +1242,25 @@ Mahendra Sanjaya dan Mentari Atmaja, pasangan yang membangun keluarga dengan emp
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Perkenalan Anak-Anak" tags="done" position="650,500" size="100,100">&lt;div class=&quot;container&quot;&gt;
 	&lt;video src=&quot;video/stars.mp4&quot; type=&quot;video/mp4&quot; autoplay muted loop&gt;&lt;/video&gt;
     [img[image/sibling.jpg]]
-&lt;/div&gt;&lt;div class=&quot;isi&quot;&gt;&lt;&lt;flash &quot;Ketuk foto untuk melihat nama masing-masing karakter.&quot;&gt;&gt;
-	&lt;&lt;flashType &quot;info&quot;&gt;&gt;
-    &lt;&lt;Timeout 10000&gt;&gt;
-    &lt;&lt;Delay 1000&gt;&gt;
-&lt;&lt;/flash&gt;&gt;&lt;div class=&quot;gallery-image&quot;&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/hendry.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Hendry&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Ravindra&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/narala.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Narala&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Alessya&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/karel.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Karel&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Aswangga&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/naverlla.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Naverlla&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Zoyelline&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt; 
-    &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;isi&quot;&gt;&lt;div class=&quot;grid-container&quot;&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-3&#39; src=&quot;image/hendry.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Hendry Ravindra&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-4&#39; src=&quot;image/narala.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Narala Alessya&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-5&#39; src=&quot;image/karel.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Karel Aswangga&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-6&#39; src=&quot;image/naverlla.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Naverlla Zoyelline&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+  &lt;/div&gt;
   &lt;/div&gt;
 
 Narala Alessya, anak ketiga dari Mahendra Sanjaya dan Mentari Atmaja, hidup dalam keluarga yang penuh dengan rahasia dan ketegangan. Dia memiliki kakak laki-laki, Hendry Ravindra dan Naverlla Zoyelline, serta adik laki-laki, Karel Aswangga
@@ -1347,19 +1269,12 @@ Narala Alessya, anak ketiga dari Mahendra Sanjaya dan Mentari Atmaja, hidup dala
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Perkenalan Ibu Tiri" tags="" position="775,500" size="100,100">&lt;div class=&quot;container&quot;&gt;
 	&lt;video src=&quot;video/ink.mp4&quot; type=&quot;video/mp4&quot; autoplay muted loop&gt;&lt;/video&gt;
     [img[image/secret.jpg]]
-&lt;/div&gt;&lt;div class=&quot;isi&quot;&gt;&lt;&lt;flash &quot;Ketuk foto untuk melihat nama masing-masing karakter.&quot;&gt;&gt;
-	&lt;&lt;flashType &quot;info&quot;&gt;&gt;
-    &lt;&lt;Timeout 10000&gt;&gt;
-    &lt;&lt;Delay 1000&gt;&gt;
-&lt;&lt;/flash&gt;&gt;&lt;div class=&quot;gallery-image&quot;&gt;
-    &lt;div class=&quot;img-box&quot;&gt;
-      &lt;img src=&quot;image/ziyara.jpg&quot;&gt;
-      &lt;div class=&quot;transparent-box&quot;&gt;
-        &lt;div class=&quot;caption&quot;&gt;\
-          &lt;p&gt;Ziyara&lt;/p&gt;\
-          &lt;p class=&quot;opacity-low&quot;&gt;Olive&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;isi&quot;&gt;&lt;div class=&quot;grid-container&quot;&gt;
+  &lt;div&gt;
+    &lt;img class=&#39;grid-item grid-item-3&#39; src=&quot;image/ziyara.jpg&quot; alt=&#39;&#39;&gt;
+    &lt;p&gt;Ziyara Olive&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
