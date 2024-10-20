@@ -288,9 +288,21 @@ h2 {
   width: calc(100% - 300px)!important;
   position: absolute!important;
   padding: 20px;
-  -webkit-overflow-scrolling: touch;
   background: rgba(0,0,0,.8);
   border-radius: 40px;
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+  }
+  html ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body.cover .flash-container .flash-message {
