@@ -283,16 +283,17 @@ h2 {
 
 .isi {
   z-index: 1;
+  overflow: scroll;
   color: white;
   width: calc(100% - 300px)!important;
   position: absolute!important;
   padding: 20px;
+  -webkit-overflow-scrolling: touch;
   background: rgba(0,0,0,.8);
   border-radius: 40px;
 }
 
 body.cover .flash-container .flash-message {
-  height: none!important;
   font-size: 14px!important;
   font-weight: none!important;
   transform: translateX(-20px)!important;
